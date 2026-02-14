@@ -1,0 +1,1021 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>С Днём Святого Валентина 💕</title>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,200;0,9..144,300;0,9..144,400;1,9..144,200;1,9..144,300;1,9..144,400&family=Bodoni+Moda:ital,opsz,wght@0,6..96,300;0,6..96,400;1,6..96,300;1,6..96,400&family=Mrs+Saint+Delafield&family=Jost:wght@200;300;400&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+  :root {
+    --rose: #c0395a;
+    --rose-light: #e8607a;
+    --rose-pale: #f7a8b8;
+    --gold: #d4a853;
+    --gold-light: #f0cc88;
+    --cream: #fff5f5;
+    --dark: #0d0608;
+    --dark2: #1a0d10;
+    --dark3: #221015;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--dark);
+    color: var(--cream);
+    font-family: 'Jost', sans-serif;
+    font-weight: 300;
+    overflow-x: hidden;
+    cursor: none;
+  }
+
+  /* ── CUSTOM CURSOR ── */
+  #cursor {
+    width: 12px; height: 12px;
+    background: var(--rose-light);
+    border-radius: 50%;
+    position: fixed;
+    top: 0; left: 0;
+    pointer-events: none;
+    z-index: 9999;
+    transform: translate(-50%, -50%);
+    transition: transform 0.1s, background 0.2s;
+    box-shadow: 0 0 12px var(--rose-light), 0 0 24px var(--rose);
+    mix-blend-mode: screen;
+  }
+
+  /* ── CANVAS BACKGROUND ── */
+  #bg-canvas {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    z-index: 0;
+    pointer-events: none;
+  }
+
+  /* ── CURSOR HEARTS ── */
+  .cursor-heart {
+    position: fixed;
+    pointer-events: none;
+    z-index: 9998;
+    font-size: 16px;
+    animation: floatUp 1.2s ease-out forwards;
+    transform: translate(-50%, -50%);
+    mix-blend-mode: screen;
+  }
+
+  @keyframes floatUp {
+    0%   { opacity: 1; transform: translate(-50%, -50%) scale(1) rotate(0deg); }
+    100% { opacity: 0; transform: translate(-50%, -160px) scale(0.4) rotate(20deg); }
+  }
+
+  /* ── WRAPPER ── */
+  .content {
+    position: relative;
+    z-index: 1;
+  }
+
+  /* ── HERO ── */
+  .hero {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 40px 20px;
+    position: relative;
+  }
+
+  .hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse 80% 60% at 50% 50%, rgba(192,57,90,0.18) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  .date-tag {
+    font-family: 'Jost', sans-serif;
+    font-weight: 200;
+    font-size: 0.65rem;
+    letter-spacing: 0.45em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 28px;
+    opacity: 0;
+    animation: fadeDown 1s 0.3s ease forwards;
+  }
+
+  .hero-title {
+    font-family: 'Fraunces', serif;
+    font-size: clamp(3rem, 9vw, 8rem);
+    font-weight: 200;
+    font-optical-sizing: auto;
+    line-height: 1.0;
+    letter-spacing: -0.02em;
+    color: var(--cream);
+    opacity: 0;
+    animation: fadeDown 1s 0.6s ease forwards;
+  }
+
+  .hero-title em {
+    font-style: italic;
+    color: var(--rose-pale);
+    display: block;
+  }
+
+  .hero-subtitle {
+    font-family: 'Mrs Saint Delafield', cursive;
+    font-size: clamp(1.4rem, 3vw, 2.2rem);
+    color: var(--gold-light);
+    margin-top: 20px;
+    opacity: 0;
+    animation: fadeDown 1s 0.9s ease forwards;
+  }
+
+  .scroll-hint {
+    margin-top: 60px;
+    opacity: 0;
+    animation: fadeDown 1s 1.5s ease forwards, pulse 2s 2s infinite;
+    font-family: 'Mrs Saint Delafield', cursive;
+    font-size: 1.2rem;
+    color: var(--rose-pale);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .scroll-hint::after {
+    content: '↓';
+    font-size: 1.4rem;
+    display: block;
+  }
+
+  @keyframes fadeDown {
+    from { opacity: 0; transform: translateY(-20px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  @keyframes pulse { 0%,100% { opacity:0.7; } 50% { opacity:1; } }
+
+  /* ── DIVIDER ── */
+  .divider {
+    text-align: center;
+    padding: 40px 0 20px;
+    font-size: 1.4rem;
+    color: var(--rose);
+    letter-spacing: 0.3em;
+    opacity: 0.7;
+  }
+
+  /* ── SECTION TITLE ── */
+  .section-title {
+    font-family: 'Bodoni Moda', serif;
+    font-size: clamp(1.8rem, 4.5vw, 3.2rem);
+    font-weight: 300;
+    text-align: center;
+    padding: 20px 20px 50px;
+    color: var(--cream);
+    letter-spacing: 0.03em;
+  }
+
+  .section-title span {
+    font-style: italic;
+    color: var(--rose-pale);
+  }
+
+  /* ── REASONS GRID ── */
+  .reasons-section {
+    padding: 20px 20px 80px;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .reasons-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 16px;
+  }
+
+  .reason-card {
+    background: rgba(255,255,255,0.03);
+    border: 1px solid rgba(192,57,90,0.15);
+    border-radius: 12px;
+    padding: 20px 18px;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.4s cubic-bezier(0.23,1,0.32,1);
+    cursor: default;
+  }
+
+  .reason-card::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at var(--mx,50%) var(--my,50%), rgba(192,57,90,0.18) 0%, transparent 65%);
+    opacity: 0;
+    transition: opacity 0.4s;
+    pointer-events: none;
+  }
+
+  .reason-card:hover::before { opacity: 1; }
+
+  .reason-card:hover {
+    border-color: rgba(192,57,90,0.5);
+    transform: translateY(-4px) scale(1.02);
+    box-shadow: 0 12px 40px rgba(192,57,90,0.2), 0 0 0 1px rgba(192,57,90,0.3);
+    background: rgba(255,255,255,0.06);
+  }
+
+  .reason-num {
+    font-family: 'Fraunces', serif;
+    font-size: 2.2rem;
+    font-weight: 200;
+    font-optical-sizing: auto;
+    color: rgba(192,57,90,0.3);
+    line-height: 1;
+    margin-bottom: 8px;
+    transition: color 0.3s;
+  }
+
+  .reason-card:hover .reason-num {
+    color: var(--rose);
+  }
+
+  .reason-text {
+    font-family: 'Bodoni Moda', serif;
+    font-optical-sizing: auto;
+    font-size: 0.95rem;
+    font-weight: 300;
+    line-height: 1.65;
+    color: rgba(255,245,245,0.8);
+    transition: color 0.3s;
+  }
+
+  .reason-card:hover .reason-text {
+    color: var(--cream);
+  }
+
+  /* ── LOVE LETTER SECTION ── */
+  .letter-section {
+    padding: 60px 20px 100px;
+    max-width: 720px;
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  .letter-box {
+    background: rgba(255,255,255,0.025);
+    border: 1px solid rgba(212,168,83,0.2);
+    border-radius: 20px;
+    padding: 50px 40px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .letter-box::before {
+    content: '❝';
+    position: absolute;
+    top: 10px; left: 24px;
+    font-family: 'Bodoni Moda', serif;
+    font-size: 5rem;
+    color: rgba(212,168,83,0.15);
+    line-height: 1;
+  }
+
+  .letter-text {
+    font-family: 'Fraunces', serif;
+    font-optical-sizing: auto;
+    font-size: clamp(1.05rem, 2.2vw, 1.25rem);
+    font-style: italic;
+    font-weight: 300;
+    line-height: 2;
+    color: rgba(255,245,245,0.85);
+  }
+
+  .letter-signature {
+    margin-top: 32px;
+    font-family: 'Mrs Saint Delafield', cursive;
+    font-size: 2rem;
+    color: var(--gold-light);
+  }
+
+  /* ── FINAL HEART ── */
+  .final-section {
+    text-align: center;
+    padding: 40px 20px 100px;
+  }
+
+  .big-heart {
+    font-size: 5rem;
+    animation: heartbeat 1.5s ease-in-out infinite;
+    display: inline-block;
+    filter: drop-shadow(0 0 20px var(--rose));
+  }
+
+  @keyframes heartbeat {
+    0%, 100% { transform: scale(1); }
+    25% { transform: scale(1.12); }
+    50% { transform: scale(1); }
+    75% { transform: scale(1.08); }
+  }
+
+  .final-text {
+    font-family: 'Mrs Saint Delafield', cursive;
+    font-size: clamp(2rem, 5vw, 3.2rem);
+    color: var(--rose-pale);
+    margin-top: 20px;
+  }
+
+  /* ── GLOW TEXT HOVER ── */
+  .glow-text {
+    transition: text-shadow 0.3s, color 0.3s;
+  }
+
+  .glow-text:hover {
+    color: var(--rose-pale);
+    text-shadow: 0 0 20px var(--rose), 0 0 40px rgba(192,57,90,0.5);
+  }
+
+  /* ── PHOTO GALLERY ── */
+  .photos-section {
+    padding: 20px 20px 80px;
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+
+  .photos-intro {
+    text-align: center;
+    font-family: 'Jost', sans-serif;
+    font-size: 0.7rem;
+    font-weight: 200;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: rgba(255,245,245,0.35);
+    margin-bottom: 40px;
+  }
+
+  .polaroid-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 28px;
+    align-items: start;
+  }
+
+  .polaroid-wrap {
+    display: flex;
+    justify-content: center;
+  }
+
+  /* Alternate slight rotations for each card */
+  .polaroid-wrap:nth-child(3n+1) .polaroid { transform: rotate(-2.5deg); }
+  .polaroid-wrap:nth-child(3n+2) .polaroid { transform: rotate(1.5deg); }
+  .polaroid-wrap:nth-child(3n+3) .polaroid { transform: rotate(-1deg); }
+
+  .polaroid {
+    background: #fff;
+    padding: 10px 10px 28px;
+    width: 190px;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.55), 0 2px 8px rgba(0,0,0,0.3);
+    transition: transform 0.4s cubic-bezier(0.23,1,0.32,1), box-shadow 0.4s;
+    position: relative;
+  }
+
+  .polaroid:hover {
+    transform: rotate(0deg) scale(1.06) translateY(-6px) !important;
+    box-shadow: 0 20px 60px rgba(192,57,90,0.35), 0 4px 16px rgba(0,0,0,0.4);
+    z-index: 10;
+  }
+
+  .photo-frame {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    background: var(--dark3);
+    overflow: hidden;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .photo-frame img {
+    width: 100%; height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: opacity 0.4s;
+  }
+
+  .photo-placeholder {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    color: rgba(255,245,245,0.3);
+    pointer-events: none;
+    transition: color 0.3s;
+    text-align: center;
+    padding: 10px;
+  }
+
+  .polaroid:hover .photo-placeholder { color: rgba(192,57,90,0.7); }
+
+  .photo-placeholder-icon { font-size: 2rem; opacity: 0.5; }
+
+  .photo-placeholder-text {
+    font-family: 'Jost', sans-serif;
+    font-size: 0.55rem;
+    font-weight: 300;
+    letter-spacing: 0.1em;
+    text-transform: none;
+    line-height: 1.5;
+    word-break: break-all;
+    color: rgba(255,245,245,0.4);
+  }
+
+  .polaroid-caption {
+    padding: 10px 4px 0;
+    font-family: 'Mrs Saint Delafield', cursive;
+    font-size: 1.05rem;
+    color: #555;
+    text-align: center;
+    min-height: 28px;
+  }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 600px) {
+    .reasons-grid { grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); gap: 10px; }
+    .letter-box { padding: 36px 24px; }
+    .polaroid-grid { grid-template-columns: repeat(2, 1fr); gap: 16px; }
+    .polaroid { width: 100%; }
+  }
+</style>
+</head>
+<body>
+
+<canvas id="bg-canvas"></canvas>
+<div id="cursor"></div>
+<div class="content">
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="date-tag">14 февраля · День Святого Валентина</div>
+    <h1 class="hero-title glow-text">
+      Я люблю тебя<br>
+      <em>100 причин из тысячи</em>
+    </h1>
+    <p class="hero-subtitle">для самой прекрасной девушки в моей вселенной</p>
+    <div class="scroll-hint">листай вниз</div>
+  </section>
+
+  <!-- PHOTO GALLERY -->
+  <div class="divider">♥ · ♥ · ♥</div>
+  <p class="section-title">Наши моменты, <span>которые я храню</span></p>
+
+  <section class="photos-section">
+    <p class="photos-intro">положи фотки в папку «photos/» и впиши названия файлов в коде</p>
+    <div class="polaroid-grid" id="polaroid-grid"></div>
+  </section>
+
+  <!-- REASONS -->
+  <div class="divider">♥ · ♥ · ♥</div>
+  <p class="section-title">100 причин, <span>почему я тебя люблю</span></p>
+
+  <section class="reasons-section">
+    <div class="reasons-grid" id="reasons-grid"></div>
+  </section>
+
+  <!-- LOVE LETTER -->
+  <div class="divider">♥ · ♥ · ♥</div>
+  <section class="letter-section">
+    <p class="section-title">Письмо <span>от сердца</span></p>
+    <div class="letter-box">
+      <p class="letter-text">
+        Каждое утро, когда я просыпаюсь, первая мысль — о тебе.<br><br>
+        Ты — это то редкое чудо, которое заставляет обычные дни казаться особенными,
+        а особенные моменты — незабываемыми.<br><br>
+        Я не ищу слов, достаточно красивых, чтобы описать всё, что ты значишь для меня.
+        Я просто знаю, что с тобой мир становится теплее, ярче и настоящее.<br><br>
+        Спасибо за то, что ты есть. Спасибо, что ты — ты.
+      </p>
+      <div class="letter-signature">С любовью, навсегда твой ♥</div>
+    </div>
+  </section>
+
+  <!-- FINAL -->
+  <section class="final-section">
+    <div class="big-heart">❤️</div>
+    <p class="final-text glow-text">Ты моя любимая Valentine</p>
+  </section>
+
+</div>
+
+<script>
+// ── REASONS DATA ──
+const reasons = [
+  "За твою улыбку, которая освещает любую комнату",
+  "За твои глаза, в которых я могу читать целые истории",
+  "За то, как ты смеёшься — это самый красивый звук",
+  "За твою доброту к людям вокруг",
+  "За то, как ты обнимаешь — крепко и по-настоящему",
+  "За твою силу духа в трудные моменты",
+  "За твою нежность, которую ты прячешь, думая, что я не вижу",
+  "За то, как ты заботишься о близких",
+  "За твой ум и глубину мыслей",
+  "За твою искренность — ты никогда не притворяешься",
+  "За то, как ты слушаешь — по-настоящему, всем сердцем",
+  "За твою смелость — ты идёшь вперёд, даже когда страшно",
+  "За твои маленькие причуды, которые делают тебя уникальной",
+  "За то, как ты защищаешь тех, кого любишь",
+  "За твой вкус — в музыке, в жизни, во всём",
+  "За то, что ты умеешь радоваться мелочам",
+  "За твою интуицию, которая почти всегда права",
+  "За то, как ты выглядишь по утрам — абсолютно прекрасно",
+  "За твою честность, даже когда это нелегко",
+  "За то, что ты можешь превратить обычный вечер в незабываемый",
+  "За твой характер — мягкий снаружи, стальной внутри",
+  "За то, как ты говоришь о вещах, которые тебя увлекают",
+  "За твои руки — самые любимые в мире",
+  "За то, что ты умеешь молчать рядом — и это не пустота",
+  "За твою любовь к жизни, которая заражает меня",
+  "За то, как ты умеешь прощать",
+  "За твои мечты — большие и смелые",
+  "За то, что ты никогда не останавливаешься на достигнутом",
+  "За твою страсть — к делу, к людям, ко мне",
+  "За то, что рядом с тобой я становлюсь лучше",
+  "За твой смех посреди ночи над глупыми шутками",
+  "За то, как ты чувствуешь настроение без слов",
+  "За твою преданность — редкое и ценное качество",
+  "За то, что ты умеешь удивлять",
+  "За твою грацию в любых ситуациях",
+  "За то, как ты танцуешь, когда думаешь, что никто не смотрит",
+  "За твою чувствительность — это сила, а не слабость",
+  "За то, что ты веришь в людей, даже когда они сами в себя не верят",
+  "За твою любовь к красивым вещам",
+  "За то, как ты умеешь создавать уют из ничего",
+  "За твои объятия в трудный день",
+  "За то, что ты помнишь то, что важно для меня",
+  "За твою несовершенность, которая делает тебя совершенной",
+  "За то, как ты сбиваешь меня с толку одним взглядом",
+  "За твою страсть к тому, во что ты веришь",
+  "За то, что ты не боишься быть собой",
+  "За твой способ видеть красоту там, где другие её не замечают",
+  "За то, как ты справляешься с трудностями — тихо и достойно",
+  "За твои рассказы — всегда живые и настоящие",
+  "За то, что ты умеешь слушать сердцем",
+  "За твою энергию, которая заряжает всех вокруг",
+  "За то, что ты помогаешь мне верить в лучшее",
+  "За твои суждения — острые и справедливые",
+  "За то, как ты реагируешь на сюрпризы",
+  "За твою независимость, за то, что ты цельный человек",
+  "За то, что рядом с тобой тишина — не awkward пауза",
+  "За твою способность находить выход в любой ситуации",
+  "За то, как ты произносишь моё имя",
+  "За твои глаза, когда ты чем-то восхищена",
+  "За то, что ты умеешь ценить моменты",
+  "За твою любовь к жизни во всех её проявлениях",
+  "За твой способ обращаться с незнакомцами — с теплом",
+  "За то, что ты никогда не скучная",
+  "За твою лёгкость — быть рядом с тобой просто",
+  "За то, как ты помнишь мелкие детали о людях",
+  "За твою веру в меня — даже тогда, когда я сам сомневался",
+  "За то, что ты умеешь мечтать вслух",
+  "За твою смелость говорить правду",
+  "За то, как ты умеешь отдыхать — по-настоящему",
+  "За твой взгляд на мир — широкий и живой",
+  "За то, что ты не боишься глубины — ни в разговорах, ни в чувствах",
+  "За твою самоиронию — это так привлекательно",
+  "За то, что ты позволяешь мне видеть твои уязвимые стороны",
+  "За твою стойкость — ты не ломаешься",
+  "За то, как ты относишься к животным",
+  "За твои тёплые слова в нужный момент",
+  "За то, что ты умеешь прощаться правильно и встречаться радостно",
+  "За твою упрямство — оно приводит тебя туда, где ты должна быть",
+  "За то, что ты заставляешь меня думать иначе",
+  "За твою любовь — настоящую, живую",
+  "За то, что ты выбрала меня",
+  "За то, что ты делаешь мою жизнь полной",
+  "За твою интеллигентность и такт",
+  "За то, что ты умеешь извиниться искренне",
+  "За твои амбиции — ты знаешь, чего хочешь",
+  "За то, как ты справляешься с разочарованием — без потери себя",
+  "За твой способ видеть лучшее в людях",
+  "За то, что ты не притворяешься кем-то другим ради одобрения",
+  "За твои ценности — глубокие и настоящие",
+  "За то, как ты умеешь радоваться за других",
+  "За твою нежность в словах",
+  "За то, что ты умеешь удерживать то, что важно",
+  "За твою красоту — внешнюю и внутреннюю",
+  "За то, что ты наполняешь пространство вокруг себя смыслом",
+  "За твою любовь к нам двоим",
+  "За то, что ты — это ты. Единственная и неповторимая.",
+];
+
+// Render reasons
+const grid = document.getElementById('reasons-grid');
+reasons.forEach((r, i) => {
+  const card = document.createElement('div');
+  card.className = 'reason-card';
+  card.innerHTML = `<div class="reason-num">${String(i+1).padStart(2,'0')}</div><div class="reason-text">${r}</div>`;
+  grid.appendChild(card);
+  // Radial gradient follow on hover
+  card.addEventListener('mousemove', e => {
+    const rect = card.getBoundingClientRect();
+    const x = ((e.clientX - rect.left) / rect.width * 100).toFixed(1);
+    const y = ((e.clientY - rect.top) / rect.height * 100).toFixed(1);
+    card.style.setProperty('--mx', `${x}%`);
+    card.style.setProperty('--my', `${y}%`);
+  });
+});
+
+// ── CUSTOM CURSOR ──
+const cursor = document.getElementById('cursor');
+let mx = 0, my = 0;
+document.addEventListener('mousemove', e => {
+  mx = e.clientX; my = e.clientY;
+  cursor.style.left = mx + 'px';
+  cursor.style.top = my + 'px';
+  spawnHeart(mx, my);
+});
+
+let heartThrottle = 0;
+function spawnHeart(x, y) {
+  const now = Date.now();
+  if (now - heartThrottle < 120) return;
+  heartThrottle = now;
+  const hearts = ['♥','❤','💕','💗','💖','✦'];
+  const h = document.createElement('div');
+  h.className = 'cursor-heart';
+  h.textContent = hearts[Math.floor(Math.random() * hearts.length)];
+  h.style.left = x + (Math.random()*20-10) + 'px';
+  h.style.top = y + (Math.random()*20-10) + 'px';
+  h.style.fontSize = (10 + Math.random()*14) + 'px';
+  h.style.color = `hsl(${330+Math.random()*30}, 80%, ${65+Math.random()*20}%)`;
+  h.style.animationDuration = (0.9 + Math.random()*0.6) + 's';
+  document.body.appendChild(h);
+  setTimeout(() => h.remove(), 1400);
+}
+
+// ── BACKGROUND CANVAS ──
+const canvas = document.getElementById('bg-canvas');
+const ctx = canvas.getContext('2d');
+let W, H, particles = [];
+
+function resize() {
+  W = canvas.width = window.innerWidth;
+  H = canvas.height = window.innerHeight;
+}
+resize();
+window.addEventListener('resize', resize);
+
+// Heart path helper
+function heartPath(cx, cy, size) {
+  ctx.save();
+  ctx.translate(cx, cy);
+  ctx.scale(size/10, size/10);
+  ctx.beginPath();
+  ctx.moveTo(0, -2);
+  ctx.bezierCurveTo(-5, -7, -10, -1, 0, 6);
+  ctx.bezierCurveTo(10, -1, 5, -7, 0, -2);
+  ctx.restore();
+}
+
+class Particle {
+  constructor() { this.reset(true); }
+  reset(init) {
+    this.x = Math.random() * W;
+    this.y = init ? Math.random() * H : H + 20;
+    this.size = 3 + Math.random() * 8;
+    this.speedY = -(0.2 + Math.random() * 0.5);
+    this.speedX = (Math.random() - 0.5) * 0.3;
+    this.alpha = 0.05 + Math.random() * 0.2;
+    this.hue = 330 + Math.random() * 25;
+    this.wobble = Math.random() * Math.PI * 2;
+    this.wobbleSpeed = 0.005 + Math.random() * 0.01;
+  }
+  update() {
+    // Gentle attraction toward cursor
+    const dx = mx - this.x;
+    const dy = my - this.y;
+    const dist = Math.sqrt(dx*dx+dy*dy);
+    if (dist < 200) {
+      this.x += dx * 0.002;
+      this.y += dy * 0.002;
+    }
+    this.wobble += this.wobbleSpeed;
+    this.x += this.speedX + Math.sin(this.wobble) * 0.3;
+    this.y += this.speedY;
+    if (this.y < -20) this.reset(false);
+  }
+  draw() {
+    ctx.globalAlpha = this.alpha;
+    ctx.fillStyle = `hsl(${this.hue}, 70%, 60%)`;
+    heartPath(this.x, this.y, this.size);
+    ctx.fill();
+    ctx.globalAlpha = 1;
+  }
+}
+
+// Init 120 particles
+for (let i = 0; i < 120; i++) particles.push(new Particle());
+
+function drawBg() {
+  ctx.clearRect(0, 0, W, H);
+
+  // Soft vignette gradient
+  const grad = ctx.createRadialGradient(W/2, H/2, 0, W/2, H/2, Math.max(W,H)*0.7);
+  grad.addColorStop(0, 'rgba(20,5,10,0)');
+  grad.addColorStop(1, 'rgba(5,0,3,0.6)');
+  ctx.fillStyle = grad;
+  ctx.fillRect(0,0,W,H);
+
+  // Cursor glow
+  const cglow = ctx.createRadialGradient(mx, my, 0, mx, my, 180);
+  cglow.addColorStop(0, 'rgba(192,57,90,0.08)');
+  cglow.addColorStop(1, 'rgba(192,57,90,0)');
+  ctx.fillStyle = cglow;
+  ctx.fillRect(0,0,W,H);
+
+  particles.forEach(p => { p.update(); p.draw(); });
+
+  requestAnimationFrame(drawBg);
+}
+drawBg();
+
+// ╔══════════════════════════════════════════════════════════════════╗
+// ║           📸  ФОТОГРАФИИ — КАК ДОБАВИТЬ                        ║
+// ║                                                                  ║
+// ║  1. Открой этот файл в браузере                                  ║
+// ║  2. Нажми кнопку 🛠 в правом нижнем углу                        ║
+// ║  3. Загрузи фото — получишь готовую строку кода                  ║
+// ║  4. Скопируй её и вставь в src: "" ниже                          ║
+// ║  5. Измени caption на свою подпись                                ║
+// ║  6. Убери кнопку 🛠 перед публикацией: showDevTool = false        ║
+// ╚══════════════════════════════════════════════════════════════════╝
+
+const showDevTool = true; // ← поставь false перед публикацией на хост
+
+// ── ВСТАВЛЯЙ ФОТО СЮДА ──────────────────────────────────────────────
+// src: "" — пусто (заглушка)  |  src: "data:image/jpeg;base64,..." — фото
+const PHOTOS = [
+  {
+    src:     "",                        // ← вставь base64 сюда
+    caption: "наша первая встреча"      // ← подпись под фото
+  },
+  {
+    src:     "",
+    caption: "твоя улыбка"
+  },
+  {
+    src:     "",
+    caption: "момент счастья"
+  },
+  {
+    src:     "",
+    caption: "просто ты"
+  },
+  {
+    src:     "",
+    caption: "моя любимая"
+  },
+  {
+    src:     "",
+    caption: "незабываемый день"
+  },
+];
+// ────────────────────────────────────────────────────────────────────
+
+// ── Рендер поляроидов ──
+const polaroidGrid = document.getElementById('polaroid-grid');
+
+PHOTOS.forEach((photo, i) => {
+  const wrap = document.createElement('div');
+  wrap.className = 'polaroid-wrap';
+
+  const polaroid = document.createElement('div');
+  polaroid.className = 'polaroid';
+
+  const frame = document.createElement('div');
+  frame.className = 'photo-frame';
+
+  if (photo.src) {
+    const img = document.createElement('img');
+    img.src = photo.src;
+    img.alt = photo.caption;
+    frame.appendChild(img);
+  } else {
+    const ph = document.createElement('div');
+    ph.className = 'photo-placeholder';
+    ph.innerHTML = `<div class="photo-placeholder-icon">📷</div><div class="photo-placeholder-text">фото ${i+1}</div>`;
+    frame.appendChild(ph);
+  }
+
+  const caption = document.createElement('div');
+  caption.className = 'polaroid-caption';
+  caption.textContent = photo.caption;
+
+  polaroid.appendChild(frame);
+  polaroid.appendChild(caption);
+  wrap.appendChild(polaroid);
+  polaroidGrid.appendChild(wrap);
+});
+
+// ── 🛠 DEV TOOL: BASE64 КОНВЕРТЕР ──
+if (showDevTool) {
+  // Floating button
+  const devBtn = document.createElement('button');
+  devBtn.id = 'dev-btn';
+  devBtn.innerHTML = '🛠';
+  devBtn.title = 'Конвертер фото → код';
+  devBtn.style.cssText = `
+    position:fixed; bottom:24px; right:24px; z-index:99999;
+    width:48px; height:48px; border-radius:50%;
+    background:rgba(20,5,10,0.85); border:1px solid rgba(192,57,90,0.5);
+    color:#fff; font-size:1.3rem; cursor:pointer;
+    box-shadow:0 4px 20px rgba(192,57,90,0.3);
+    transition:transform 0.2s, box-shadow 0.2s;
+    display:flex; align-items:center; justify-content:center;
+  `;
+  devBtn.onmouseenter = () => { devBtn.style.transform='scale(1.1)'; devBtn.style.boxShadow='0 6px 28px rgba(192,57,90,0.5)'; };
+  devBtn.onmouseleave = () => { devBtn.style.transform='scale(1)'; devBtn.style.boxShadow='0 4px 20px rgba(192,57,90,0.3)'; };
+  document.body.appendChild(devBtn);
+
+  // Modal overlay
+  const modal = document.createElement('div');
+  modal.id = 'dev-modal';
+  modal.style.cssText = `
+    position:fixed; inset:0; z-index:99998;
+    background:rgba(5,0,3,0.92); backdrop-filter:blur(10px);
+    display:none; align-items:center; justify-content:center;
+    padding:20px;
+  `;
+
+  modal.innerHTML = `
+    <div style="
+      background:#1a0d10; border:1px solid rgba(192,57,90,0.3);
+      border-radius:20px; padding:36px; max-width:560px; width:100%;
+      font-family:'Jost',sans-serif; color:#fff5f5; position:relative;
+      max-height:90vh; overflow-y:auto;
+    ">
+      <button id="dev-close" style="
+        position:absolute; top:16px; right:20px;
+        background:none; border:none; color:rgba(255,245,245,0.4);
+        font-size:1.4rem; cursor:pointer; line-height:1;
+      ">✕</button>
+
+      <h2 style="font-family:'Fraunces',serif; font-weight:200; font-size:1.8rem; margin-bottom:6px; color:#fff5f5;">
+        Конвертер фото
+      </h2>
+      <p style="font-size:0.72rem; letter-spacing:0.2em; text-transform:uppercase; color:#d4a853; margin-bottom:24px;">
+        только для редактирования · убери перед публикацией
+      </p>
+
+      <p style="font-size:0.88rem; line-height:1.7; color:rgba(255,245,245,0.65); margin-bottom:22px;">
+        Выбери фото → скопируй строку → вставь в <code style="background:rgba(255,255,255,0.07);padding:2px 6px;border-radius:4px;font-size:0.8rem;">src: ""</code> в коде.
+      </p>
+
+      <label style="
+        display:block; padding:18px; border:1.5px dashed rgba(192,57,90,0.4);
+        border-radius:12px; text-align:center; cursor:pointer;
+        background:rgba(255,255,255,0.02); margin-bottom:20px;
+        transition:border-color 0.2s;
+      " id="dev-drop-label">
+        <input type="file" id="dev-file-input" accept="image/*" style="display:none">
+        <div style="font-size:2rem; margin-bottom:6px;">📸</div>
+        <div style="font-size:0.8rem; color:rgba(255,245,245,0.5);">
+          Нажми или перетащи фото сюда
+        </div>
+      </label>
+
+      <div id="dev-preview" style="display:none; margin-bottom:20px;">
+        <img id="dev-preview-img" style="width:100%; max-height:200px; object-fit:cover; border-radius:10px; margin-bottom:14px;">
+        <p style="font-size:0.75rem; color:rgba(255,245,245,0.4); margin-bottom:8px; letter-spacing:0.1em; text-transform:uppercase;">
+          Готовая строка для вставки в src:
+        </p>
+        <div style="position:relative;">
+          <textarea id="dev-output" readonly style="
+            width:100%; height:80px; background:rgba(0,0,0,0.4);
+            border:1px solid rgba(192,57,90,0.2); border-radius:8px;
+            padding:10px; color:rgba(255,245,245,0.7);
+            font-family:monospace; font-size:0.72rem; resize:none;
+            line-height:1.5; box-sizing:border-box;
+          "></textarea>
+          <button id="dev-copy-btn" style="
+            margin-top:10px; width:100%; padding:12px;
+            background:rgba(192,57,90,0.2); border:1px solid rgba(192,57,90,0.5);
+            border-radius:8px; color:#f7a8b8;
+            font-family:'Jost',sans-serif; font-size:0.8rem;
+            letter-spacing:0.1em; cursor:pointer; transition:background 0.2s;
+          ">Скопировать строку</button>
+        </div>
+        <p id="dev-size-warn" style="display:none; margin-top:10px; font-size:0.75rem; color:#d4a853; line-height:1.6;">
+          ⚠️ Фото больше 500 КБ. Для быстрого сайта уменьши его на
+          <a href="https://squoosh.app" target="_blank" style="color:#d4a853;">squoosh.app</a>
+          перед конвертацией.
+        </p>
+      </div>
+
+      <div style="border-top:1px solid rgba(255,255,255,0.06); padding-top:18px; margin-top:4px;">
+        <p style="font-size:0.75rem; color:rgba(255,245,245,0.35); line-height:1.7;">
+          После вставки всех фото поставь <code style="background:rgba(255,255,255,0.07);padding:1px 5px;border-radius:3px;">showDevTool = false</code> — кнопка исчезнет.
+        </p>
+      </div>
+    </div>
+  `;
+  document.body.appendChild(modal);
+
+  // Toggle modal
+  devBtn.onclick = () => { modal.style.display = 'flex'; };
+  document.getElementById('dev-close').onclick = () => { modal.style.display = 'none'; };
+  modal.onclick = (e) => { if (e.target === modal) modal.style.display = 'none'; };
+
+  // File conversion
+  const fileInput = document.getElementById('dev-file-input');
+  const preview = document.getElementById('dev-preview');
+  const previewImg = document.getElementById('dev-preview-img');
+  const output = document.getElementById('dev-output');
+  const copyBtn = document.getElementById('dev-copy-btn');
+  const sizeWarn = document.getElementById('dev-size-warn');
+  const dropLabel = document.getElementById('dev-drop-label');
+
+  function convertFile(file) {
+    if (!file || !file.type.startsWith('image/')) return;
+    const reader = new FileReader();
+    reader.onload = e => {
+      const b64 = e.target.result;
+      previewImg.src = b64;
+      output.value = b64;
+      preview.style.display = 'block';
+      // Size warning: base64 inflates by ~33%, so raw file > 375KB → b64 > 500KB
+      sizeWarn.style.display = file.size > 375000 ? 'block' : 'none';
+    };
+    reader.readAsDataURL(file);
+  }
+
+  fileInput.onchange = () => convertFile(fileInput.files[0]);
+
+  // Drag & drop on label
+  dropLabel.ondragover = e => { e.preventDefault(); dropLabel.style.borderColor='rgba(192,57,90,0.9)'; };
+  dropLabel.ondragleave = () => { dropLabel.style.borderColor='rgba(192,57,90,0.4)'; };
+  dropLabel.ondrop = e => {
+    e.preventDefault();
+    dropLabel.style.borderColor='rgba(192,57,90,0.4)';
+    convertFile(e.dataTransfer.files[0]);
+  };
+
+  // Copy button
+  copyBtn.onclick = () => {
+    output.select();
+    navigator.clipboard.writeText(output.value).then(() => {
+      copyBtn.textContent = '✓ Скопировано!';
+      copyBtn.style.background = 'rgba(192,57,90,0.4)';
+      setTimeout(() => {
+        copyBtn.textContent = 'Скопировать строку';
+        copyBtn.style.background = 'rgba(192,57,90,0.2)';
+      }, 2000);
+    }).catch(() => {
+      // fallback
+      document.execCommand('copy');
+      copyBtn.textContent = '✓ Скопировано!';
+      setTimeout(() => { copyBtn.textContent = 'Скопировать строку'; }, 2000);
+    });
+  };
+}
+
+// Add polaroid cards to scroll observer
+// ── SCROLL REVEAL ──
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      e.target.style.opacity = '1';
+      e.target.style.transform = 'translateY(0)';
+    }
+  });
+}, { threshold: 0.08 });
+
+document.querySelectorAll('.polaroid-wrap').forEach((el, i) => {
+  el.style.opacity = '0';
+  el.style.transform = 'translateY(30px)';
+  el.style.transition = `opacity 0.6s ${i*0.08}s, transform 0.6s ${i*0.08}s`;
+  observer.observe(el);
+});
+
+
+document.querySelectorAll('.reason-card').forEach((el, i) => {
+  el.style.opacity = '0';
+  el.style.transform = 'translateY(24px)';
+  el.style.transition = `opacity 0.5s ${(i%10)*0.04}s, transform 0.5s ${(i%10)*0.04}s, all 0.4s cubic-bezier(0.23,1,0.32,1)`;
+  observer.observe(el);
+});
+document.querySelectorAll('.letter-box, .final-section').forEach(el => {
+  el.style.opacity = '0';
+  el.style.transform = 'translateY(30px)';
+  el.style.transition = 'opacity 0.8s, transform 0.8s';
+  observer.observe(el);
+});
+</script>
+</body>
+</html>
